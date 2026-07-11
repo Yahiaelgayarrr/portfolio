@@ -20,8 +20,10 @@ const DATA = {
   tagline: "Computer Engineering student specializing in AI, Machine Learning, and Data Science — I turn complex data into practical, intelligent systems, from deep-learning models to interactive dashboards.",
 
   // Theme colors. --accent is the primary; --accent2 powers the gradient glows.
-  accent: "#64ffda",
-  accent2: "#7c5cff",
+  // Cinematic dark palette (from ui-ux-pro-max: monochrome + blue/cyan accent).
+  accent: "#6ea8ff",
+  accent2: "#22d3ee",
+  accent3: "#a78bfa",
 
   // Contact + social links. Leave a value empty ("") to hide that button.
   location: "Cairo, Egypt",
@@ -96,9 +98,13 @@ const DATA = {
       "Rule-based risk classifier (LOW / MEDIUM / HIGH / CRITICAL) with polygon zone analysis"
     ],
     tags: ["Python", "PyTorch", "OpenCV", "FIDTM", "Streamlit", "Computer Vision"],
+    category: "AI / Computer Vision",
     link: "https://github.com/Yahiaelgayarrr/Crowd_Analysis_System",
     demo: ""
   },
+
+  /* ---- Project filter categories (shown as filter buttons) ---- */
+  filters: ["All", "AI / Computer Vision", "Data Analysis", "Web", "Games"],
 
   /* ---- Projects (cards) ----
      Copy a whole { ... } block to add a new project. */
@@ -107,6 +113,7 @@ const DATA = {
       title: "RoadPulse Analytics",
       description: "US traffic-accident risk analysis over 7.7M+ records — data pipeline, exploration, and interactive risk dashboards.",
       tags: ["Python", "Power BI", "Data Analysis"],
+      category: "Data Analysis",
       link: "https://github.com/Yahiaelgayarrr/roadpulse-analytics",
       demo: ""
     },
@@ -114,6 +121,7 @@ const DATA = {
       title: "Talabat Egypt Data Analysis",
       description: "End-to-end EDA on 100,000 food-delivery orders — cleaning, KPI calculations, visual dashboards, and business recommendations.",
       tags: ["Pandas", "NumPy", "Seaborn"],
+      category: "Data Analysis",
       link: "https://github.com/Yahiaelgayarrr/talabat-egypt-analysis",
       demo: ""
     },
@@ -121,6 +129,7 @@ const DATA = {
       title: "Car Sales Data Analysis",
       description: "End-to-end car-sales analysis with Pandas and KPI reporting, an interactive dashboard, and actionable business insights.",
       tags: ["Python", "Pandas", "Dashboard"],
+      category: "Data Analysis",
       link: "https://github.com/Yahiaelgayarrr/car-sales-data-analysis",
       demo: ""
     },
@@ -128,6 +137,7 @@ const DATA = {
       title: "Sales Data Analysis",
       description: "Exploration, KPI calculation, dashboards, and reporting across a full sales dataset lifecycle.",
       tags: ["Python", "EDA", "KPIs"],
+      category: "Data Analysis",
       link: "https://github.com/Yahiaelgayarrr/sales-data-analysis",
       demo: ""
     },
@@ -135,6 +145,7 @@ const DATA = {
       title: "Event Management System",
       description: "Full-stack MERN platform for managing events, vendors, and bookings with role-based authentication and RESTful APIs.",
       tags: ["React", "Node.js", "MongoDB", "Express"],
+      category: "Web",
       link: "https://github.com/Yahiaelgayarrr/internship-event-management-system",
       demo: ""
     },
@@ -142,6 +153,7 @@ const DATA = {
       title: "Attack on Titan — Tower Defense",
       description: "One-player endless tower-defense game with wall-defense mechanics, built in Java with an object-oriented design.",
       tags: ["Java", "OOP", "Game Dev"],
+      category: "Games",
       link: "https://github.com/Yahiaelgayarrr/Attack-On-Titan-Game",
       demo: ""
     }

@@ -7,30 +7,36 @@
   <meta name="description" content="AI, Machine Learning & Data Science portfolio" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Type system from ui-ux-pro-max: Exo (display) + Roboto Mono (labels), Inter for readable body -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Scroll progress bar -->
+  <a href="#hero" class="skip-link">Skip to content</a>
+
+  <!-- Scroll progress -->
   <div id="scroll-progress"></div>
 
-  <!-- Mouse-follow spotlight glow -->
+  <!-- Ambient cinematic light blobs + mouse spotlight + particles -->
+  <div class="ambient">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
   <div id="spotlight"></div>
-
-  <!-- Animated particle background -->
   <canvas id="bg-canvas"></canvas>
 
   <!-- Navigation -->
   <header id="nav">
     <a href="#hero" class="nav-logo">&lt;YE/&gt;</a>
-    <nav class="nav-links">
-      <a href="#about"><span>01.</span> About</a>
-      <a href="#skills"><span>02.</span> Skills</a>
-      <a href="#experience"><span>03.</span> Experience</a>
-      <a href="#projects"><span>04.</span> Projects</a>
-      <a href="#contact"><span>05.</span> Contact</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#about" data-sec="about"><span>01.</span> About</a>
+      <a href="#skills" data-sec="skills"><span>02.</span> Skills</a>
+      <a href="#experience" data-sec="experience"><span>03.</span> Experience</a>
+      <a href="#projects" data-sec="projects"><span>04.</span> Work</a>
+      <a href="#contact" data-sec="contact"><span>05.</span> Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
   </header>
 
   <main>
@@ -46,9 +52,7 @@
         <div class="hero-cta reveal" id="hero-cta"></div>
         <div class="hero-socials reveal" id="hero-socials"></div>
       </div>
-      <a href="#about" class="scroll-hint" aria-label="Scroll down">
-        <span></span>
-      </a>
+      <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
     </section>
 
     <!-- About -->
@@ -83,10 +87,13 @@
 
     <!-- Projects -->
     <section id="projects" class="section">
-      <h2 class="section-title reveal"><span class="section-num">04.</span> Projects</h2>
+      <h2 class="section-title reveal"><span class="section-num">04.</span> Selected Work</h2>
 
-      <!-- Featured project spotlight -->
+      <!-- Featured spotlight -->
       <article class="featured reveal" id="featured"></article>
+
+      <!-- Category filter -->
+      <div class="filter-bar reveal" id="filter-bar" role="tablist" aria-label="Filter projects"></div>
 
       <div class="projects-grid" id="projects-grid"></div>
     </section>
@@ -99,8 +106,8 @@
 
     <!-- Contact -->
     <section id="contact" class="section contact">
-      <p class="contact-pre reveal">05. What's Next</p>
-      <h2 class="contact-title reveal">Let's build something.</h2>
+      <p class="contact-pre reveal">06. What's Next</p>
+      <h2 class="contact-title reveal">Let's build something<br>intelligent.</h2>
       <p class="contact-text reveal">
         I'm actively looking for AI / data-science opportunities and a Master's place in Germany.
         Whether you have a role, a question, or just want to connect — my inbox is always open.
@@ -112,7 +119,7 @@
 
   <footer>
     <p>Designed &amp; built by <span id="footer-name">Yahia Elgayar</span></p>
-    <p class="footer-note">Edit <code>js/data.js</code> to update this site.</p>
+    <p class="footer-note">Crafted with the ui-ux-pro-max design system · edit <code>js/data.js</code> to update.</p>
   </footer>
 
   <script src="js/data.js"></script>
