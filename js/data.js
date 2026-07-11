@@ -9,101 +9,149 @@
 const DATA = {
 
   /* ---- Basic identity ---- */
-  name: "Your Name",
+  name: "Yahia Elgayar",
   // Short roles that cycle in the animated intro. Add/remove freely.
   roles: [
-    "Software Engineer",
-    "Master's Applicant",
-    "Problem Solver",
-    "Lifelong Learner"
+    "AI & Machine Learning Engineer",
+    "Data Scientist",
+    "Computer Vision Developer",
+    "Deep Learning Practitioner"
   ],
-  // One or two sentences under your name.
-  tagline: "Recent graduate passionate about building meaningful software and pursuing advanced study in my field.",
+  tagline: "Computer Engineering student specializing in AI, Machine Learning, and Data Science — I turn complex data into practical, intelligent systems, from deep-learning models to interactive dashboards.",
 
-  // The accent color of the whole site. Try "#64ffda", "#7c5cff", "#ff6b6b".
+  // Theme colors. --accent is the primary; --accent2 powers the gradient glows.
   accent: "#64ffda",
+  accent2: "#7c5cff",
 
   // Contact + social links. Leave a value empty ("") to hide that button.
-  location: "City, Country",
-  email: "you@example.com",
+  location: "Cairo, Egypt",
+  email: "yahiagayar2005@gmail.com",
   links: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    // Path to your CV file placed in the /assets folder, or a URL.
-    resume: "assets/resume.pdf",
-    scholar: "",     // Google Scholar (great for master's apps) or ""
+    github: "https://github.com/Yahiaelgayarrr",
+    linkedin: "https://linkedin.com/in/yahia-elgayar",
+    resume: "assets/resume.pdf",   // drop your CV as assets/resume.pdf
+    scholar: "",
     twitter: ""
   },
 
   /* ---- About section ---- */
   about: [
-    "Write a paragraph about who you are, what drives you, and what you're looking for. Mention the field you want to pursue a master's in and the kind of roles you're targeting.",
-    "A second short paragraph is optional — talk about your interests, values, or what makes you a strong candidate."
+    "I'm a Computer Engineering student at the German University in Cairo, focused on Artificial Intelligence, Machine Learning, and Data Science. I like building things end to end — from benchmarking deep-learning models and engineering data pipelines to shipping analytics and interactive dashboards people can actually use.",
+    "My A+ (98/100) bachelor thesis, a real-time crowd-analysis computer-vision system, was nominated by GUC for a showcase in Berlin and earned a research-internship offer. Combined with hands-on data-engineering experience at IBM, I'm now aiming for AI / data-science roles and an English-taught Master's in Germany."
   ],
-  // Quick stat highlights (shown as cards). Edit or remove.
+  // Quick stat highlights (animated counters). {value, suffix, label}
   stats: [
-    { value: "3.8", label: "GPA / 4.0" },
-    { value: "5+",  label: "Projects" },
-    { value: "2",   label: "Internships" }
+    { value: 98, suffix: "/100", label: "Bachelor Thesis (A+)" },
+    { value: 7.7, suffix: "M+", label: "Records Analyzed" },
+    { value: 8, suffix: "+",  label: "Projects Built" },
+    { value: 2, suffix: "",   label: "Tech Internships" }
   ],
 
   /* ---- Skills (grouped) ---- */
   skills: [
-    { group: "Languages",  items: ["Python", "JavaScript", "C++", "SQL"] },
-    { group: "Frameworks", items: ["React", "Node.js", "Flask", "TensorFlow"] },
-    { group: "Tools",      items: ["Git", "Docker", "Linux", "Figma"] }
+    { group: "Languages",        items: ["Python", "Java", "C++", "SQL"] },
+    { group: "AI / Machine Learning", items: ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "Deep Learning"] },
+    { group: "Computer Vision",  items: ["OpenCV", "YOLO", "FIDTM", "LabelMe"] },
+    { group: "Data & Analytics", items: ["Pandas", "NumPy", "EDA", "ETL Pipelines", "Azure Data Factory", "SSIS"] },
+    { group: "Visualization & Apps", items: ["Power BI", "Matplotlib", "Seaborn", "Streamlit"] },
+    { group: "Web & Databases",  items: ["React", "Node.js", "Express", "MongoDB", "SQL Server", "Git"] }
   ],
 
   /* ---- Education (timeline) ---- */
   education: [
     {
-      period: "2021 — 2025",
-      title: "B.Sc. in Your Major",
-      org: "Your University",
-      detail: "Relevant coursework, honors, thesis topic, or GPA. Anything that strengthens a master's application goes here."
+      period: "2022 — 2027",
+      title: "B.Sc. Computer Engineering",
+      org: "German University in Cairo (GUC)",
+      detail: "AI / Machine Learning specialization. Bachelor thesis graded A+ (98/100). Prioritizing AI-focused electives; expected graduation 2027."
     }
   ],
 
-  /* ---- Experience (timeline) ---- */
+  /* ---- Experience (timeline) ----
+     NOTE: Capgemini AI internship intentionally left out for now. */
   experience: [
     {
-      period: "Summer 2024",
-      title: "Software Engineering Intern",
-      org: "Company Name",
-      detail: "What you built and the impact. Use numbers where you can (improved X by Y%, served Z users)."
+      period: "Aug 2025 — Sep 2025",
+      title: "Data Engineer Intern",
+      org: "IBM, Cairo",
+      detail: "Built a data warehouse from the ground up for Finlytics, a financial-analytics platform. Engineered ETL pipelines in Azure Data Factory, integrated SQL Server + MongoDB, and delivered Power BI dashboards for stakeholders."
+    },
+    {
+      period: "Jul 2024",
+      title: "Data Analyst Intern",
+      org: "Hyve Technology Consultant, Cairo",
+      detail: "Cleaned and preprocessed raw datasets in SQL, built interactive Power BI dashboards for data-driven decisions, and supported end-to-end ETL workflows using SSIS."
     }
   ],
+
+  /* ---- Featured project (big spotlight card) ---- */
+  featured: {
+    label: "Bachelor Thesis · Graded A+ (98/100)",
+    title: "Crowd Analysis System",
+    description: "An end-to-end computer-vision system that converts CCTV-style video into crowd counts, head-localization points, heatmaps, and zone-level risk analysis. Benchmarked crowd-localization models (FIDTM, PET, STEERER) and built a Streamlit dashboard with a data-grounded AI assistant.",
+    highlights: [
+      "Nominated by GUC management for a showcase event in Berlin",
+      "Offered a research internship to extend the project",
+      "Selected FIDTM for the best accuracy/runtime balance (MAE 3.61, F1 0.73 on FDST)",
+      "Rule-based risk classifier (LOW / MEDIUM / HIGH / CRITICAL) with polygon zone analysis"
+    ],
+    tags: ["Python", "PyTorch", "OpenCV", "FIDTM", "Streamlit", "Computer Vision"],
+    link: "https://github.com/Yahiaelgayarrr/Crowd_Analysis_System",
+    demo: ""
+  },
 
   /* ---- Projects (cards) ----
      Copy a whole { ... } block to add a new project. */
   projects: [
     {
-      title: "Project One",
-      description: "A one-to-two sentence description of what it does and why it's interesting.",
-      tags: ["Python", "Machine Learning"],
-      link: "https://github.com/yourusername/project-one",  // or "" to hide
-      demo: ""   // live demo URL, or "" to hide
-    },
-    {
-      title: "Project Two",
-      description: "Another project. Highlight the hardest problem you solved.",
-      tags: ["React", "Node.js"],
-      link: "https://github.com/yourusername/project-two",
+      title: "RoadPulse Analytics",
+      description: "US traffic-accident risk analysis over 7.7M+ records — data pipeline, exploration, and interactive risk dashboards.",
+      tags: ["Python", "Power BI", "Data Analysis"],
+      link: "https://github.com/Yahiaelgayarrr/roadpulse-analytics",
       demo: ""
     },
     {
-      title: "Project Three",
-      description: "Research, coursework, or a personal build you're proud of.",
-      tags: ["C++", "Algorithms"],
-      link: "",
+      title: "Talabat Egypt Data Analysis",
+      description: "End-to-end EDA on 100,000 food-delivery orders — cleaning, KPI calculations, visual dashboards, and business recommendations.",
+      tags: ["Pandas", "NumPy", "Seaborn"],
+      link: "https://github.com/Yahiaelgayarrr/talabat-egypt-analysis",
+      demo: ""
+    },
+    {
+      title: "Car Sales Data Analysis",
+      description: "End-to-end car-sales analysis with Pandas and KPI reporting, an interactive dashboard, and actionable business insights.",
+      tags: ["Python", "Pandas", "Dashboard"],
+      link: "https://github.com/Yahiaelgayarrr/car-sales-data-analysis",
+      demo: ""
+    },
+    {
+      title: "Sales Data Analysis",
+      description: "Exploration, KPI calculation, dashboards, and reporting across a full sales dataset lifecycle.",
+      tags: ["Python", "EDA", "KPIs"],
+      link: "https://github.com/Yahiaelgayarrr/sales-data-analysis",
+      demo: ""
+    },
+    {
+      title: "Event Management System",
+      description: "Full-stack MERN platform for managing events, vendors, and bookings with role-based authentication and RESTful APIs.",
+      tags: ["React", "Node.js", "MongoDB", "Express"],
+      link: "https://github.com/Yahiaelgayarrr/internship-event-management-system",
+      demo: ""
+    },
+    {
+      title: "Attack on Titan — Tower Defense",
+      description: "One-player endless tower-defense game with wall-defense mechanics, built in Java with an object-oriented design.",
+      tags: ["Java", "OOP", "Game Dev"],
+      link: "https://github.com/Yahiaelgayarrr/Attack-On-Titan-Game",
       demo: ""
     }
   ],
 
-  /* ---- Achievements / awards (optional list) ---- */
+  /* ---- Achievements / awards ---- */
   achievements: [
-    "Dean's List — 2022, 2023",
-    "1st place, University Hackathon 2024",
-    "Publication or certificate you want to feature"
+    "Bachelor thesis graded A+ (98/100) — top mark for applied computer-vision work",
+    "Nominated by GUC management for a project showcase in Berlin",
+    "Offered a research internship to extend the thesis project",
+    "Data-engineering internship at IBM — built a financial-analytics data warehouse end to end"
   ]
 };
