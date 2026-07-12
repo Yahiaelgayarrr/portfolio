@@ -65,6 +65,26 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; line
   z-index: 150; box-shadow: 0 0 12px var(--accent);
 }
 
+/* ---- Ambient light blobs (Modern Dark Cinema style) ---- */
+.ambient { position: fixed; inset: 0; z-index: -3; pointer-events: none; overflow: hidden; }
+.blob {
+  position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.5;
+  will-change: transform;
+}
+.blob-1 { width: 46vw; height: 46vw; top: -14vw; left: -8vw;
+  background: radial-gradient(circle, rgba(56,225,255,0.5), transparent 70%);
+  animation: drift1 26s ease-in-out infinite; }
+.blob-2 { width: 40vw; height: 40vw; top: 30vh; right: -12vw;
+  background: radial-gradient(circle, rgba(124,155,255,0.42), transparent 70%);
+  animation: drift2 32s ease-in-out infinite; }
+.blob-3 { width: 34vw; height: 34vw; bottom: -12vw; left: 24vw;
+  background: radial-gradient(circle, rgba(56,225,255,0.28), transparent 70%);
+  animation: drift3 38s ease-in-out infinite; }
+@keyframes drift1 { 50% { transform: translate(8vw, 10vh) scale(1.12); } }
+@keyframes drift2 { 50% { transform: translate(-10vw, -6vh) scale(1.08); } }
+@keyframes drift3 { 50% { transform: translate(6vw, -8vh) scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+
 /* ---- Background field + grain ---- */
 #field {
   position: fixed; inset: 0; width: 100%; height: 100%;
@@ -192,6 +212,8 @@ main { position: relative; z-index: 1; }
 .btn-primary { background: var(--accent); color: #04121a; border-color: var(--accent); font-weight: 600; }
 .btn-primary:hover { box-shadow: 0 0 28px -6px var(--accent); transform: translateY(-2px); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn:active { transform: scale(0.97); }
+.btn-primary:active { transform: scale(0.97) translateY(-1px); }
 
 .scroll-cue {
   position: absolute; bottom: 2rem; left: var(--pad); display: flex; align-items: center;
@@ -299,6 +321,7 @@ main { position: relative; z-index: 1; }
   display: flex; flex-direction: column; min-height: 220px; position: relative; overflow: hidden;
 }
 .work-card:hover { transform: translateY(-6px); border-color: rgba(56,225,255,0.35); }
+.work-card:active { transform: translateY(-6px) scale(0.985); }
 .work-card::after {
   content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s;
   background: radial-gradient(600px circle at var(--mx,50%) var(--my,0%), rgba(56,225,255,0.08), transparent 40%);

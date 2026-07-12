@@ -89,12 +89,12 @@ function initReveals() {
     if (reduce) { gsap.set(el, { opacity: 1, y: 0 }); return; }
     gsap.fromTo(
       el,
-      { opacity: 0, y: 34 },
+      { opacity: 0, y: 24 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.9,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "expo.out", // cubic-bezier(0.16,1,0.3,1) — premium entrance curve
         scrollTrigger: { trigger: el, start: "top 85%", once: true }
       }
     );
@@ -180,7 +180,7 @@ function initFilters() {
       if (reduce) { c.style.display = show ? "" : "none"; return; }
       if (show) {
         c.style.display = "";
-        gsap.fromTo(c, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
+        gsap.fromTo(c, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.45, ease: "expo.out" });
       } else {
         gsap.to(c, { opacity: 0, scale: 0.96, duration: 0.25, onComplete: () => (c.style.display = "none") });
       }
