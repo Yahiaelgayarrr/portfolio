@@ -3,126 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <meta name="description" content="AI, Machine Learning & Data Science portfolio" />
+  <title>Yahia Elgayar — Data Science & AI</title>
+  <meta name="description" content="Portfolio of Yahia Elgayar — Computer Engineering student specializing in AI, Machine Learning and Data Science." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Type system from ui-ux-pro-max: Exo (display) + Roboto Mono (labels), Inter for readable body -->
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Display: Space Grotesk · Body: Inter · Labels: JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <a href="#hero" class="skip-link">Skip to content</a>
+  <div id="progress"></div>
 
-  <!-- Scroll progress -->
-  <div id="scroll-progress"></div>
-
-  <!-- Ambient cinematic light blobs + mouse spotlight + particles -->
-  <div class="ambient">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-  </div>
-  <div id="spotlight"></div>
-  <canvas id="bg-canvas"></canvas>
+  <!-- Hero background: animated particle / neural field (canvas) -->
+  <canvas id="field"></canvas>
+  <div class="grain"></div>
 
   <!-- Navigation -->
   <header id="nav">
-    <a href="#hero" class="nav-logo">&lt;YE/&gt;</a>
-    <nav class="nav-links" id="nav-links">
-      <a href="#about" data-sec="about"><span>01.</span> About</a>
-      <a href="#skills" data-sec="skills"><span>02.</span> Skills</a>
-      <a href="#experience" data-sec="experience"><span>03.</span> Experience</a>
-      <a href="#projects" data-sec="projects"><span>04.</span> Work</a>
-      <a href="#contact" data-sec="contact"><span>05.</span> Contact</a>
+    <a href="#hero" class="nav-logo">YE<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#about"><span>01</span> About</a>
+      <a href="#skills"><span>02</span> Skills</a>
+      <a href="#experience"><span>03</span> Experience</a>
+      <a href="#work"><span>04</span> Work</a>
+      <a href="#contact"><span>05</span> Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- HERO -->
     <section id="hero" class="hero">
       <div class="hero-inner">
-        <p class="hero-hi reveal">Hi, my name is</p>
-        <h1 class="hero-name reveal" id="hero-name"></h1>
-        <h2 class="hero-role reveal">
-          <span id="typed"></span><span class="cursor">_</span>
-        </h2>
-        <p class="hero-tagline reveal" id="hero-tagline"></p>
-        <div class="hero-cta reveal" id="hero-cta"></div>
-        <div class="hero-socials reveal" id="hero-socials"></div>
+        <p class="hero-eyebrow">Data Science &amp; AI · Cairo</p>
+        <h1 class="hero-name" id="hero-name"></h1>
+        <p class="hero-roles"><span id="hero-roles"></span></p>
+        <p class="hero-tagline" id="hero-tagline"></p>
+        <div class="hero-actions" id="hero-actions"></div>
       </div>
-      <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+      <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span>Scroll</a>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about" class="section">
-      <h2 class="section-title reveal"><span class="section-num">01.</span> About Me</h2>
-      <div class="about-grid">
-        <div class="about-text reveal" id="about-text"></div>
-        <div class="about-stats" id="about-stats"></div>
+      <p class="eyebrow reveal">01 — About</p>
+      <div class="about-wrap">
+        <div class="about-lead" id="about-lead"></div>
+        <aside class="about-stats" id="about-stats"></aside>
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills" class="section">
-      <h2 class="section-title reveal"><span class="section-num">02.</span> Skills &amp; Tools</h2>
+      <p class="eyebrow reveal">02 — Skills &amp; Tools</p>
+      <h2 class="section-title reveal">The stack I build with.</h2>
       <div class="skills-grid" id="skills-grid"></div>
     </section>
 
-    <!-- Experience & Education -->
+    <!-- EXPERIENCE & EDUCATION -->
     <section id="experience" class="section">
-      <h2 class="section-title reveal"><span class="section-num">03.</span> Experience &amp; Education</h2>
-      <div class="timeline-wrap">
-        <div class="timeline-col">
-          <h3 class="timeline-heading reveal">Experience</h3>
-          <div class="timeline" id="experience-timeline"></div>
+      <p class="eyebrow reveal">03 — Experience &amp; Education</p>
+      <div class="timeline-cols">
+        <div>
+          <h3 class="timeline-head reveal">Experience</h3>
+          <div class="timeline" id="experience-list"></div>
         </div>
-        <div class="timeline-col">
-          <h3 class="timeline-heading reveal">Education</h3>
-          <div class="timeline" id="education-timeline"></div>
+        <div>
+          <h3 class="timeline-head reveal">Education</h3>
+          <div class="timeline" id="education-list"></div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <h2 class="section-title reveal"><span class="section-num">04.</span> Selected Work</h2>
-
-      <!-- Featured spotlight -->
-      <article class="featured reveal" id="featured"></article>
-
-      <!-- Category filter -->
-      <div class="filter-bar reveal" id="filter-bar" role="tablist" aria-label="Filter projects"></div>
-
-      <div class="projects-grid" id="projects-grid"></div>
+    <!-- WORK -->
+    <section id="work" class="section">
+      <p class="eyebrow reveal">04 — Selected Work</p>
+      <article class="featured" id="featured"></article>
+      <div class="filter-bar" id="filter-bar" role="tablist" aria-label="Filter projects"></div>
+      <div class="work-grid" id="work-grid"></div>
     </section>
 
-    <!-- Achievements -->
-    <section id="achievements" class="section">
-      <h2 class="section-title reveal"><span class="section-num">05.</span> Highlights</h2>
-      <ul class="achievements-list" id="achievements-list"></ul>
-    </section>
-
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="section contact">
-      <p class="contact-pre reveal">06. What's Next</p>
-      <h2 class="contact-title reveal">Let's build something<br>intelligent.</h2>
-      <p class="contact-text reveal">
-        I'm actively looking for AI / data-science opportunities and a Master's place in Germany.
-        Whether you have a role, a question, or just want to connect — my inbox is always open.
-      </p>
-      <a href="#" id="contact-email-btn" class="btn btn-primary reveal">Say Hello</a>
-      <div class="contact-socials reveal" id="contact-socials"></div>
+      <p class="eyebrow reveal">05 — Contact</p>
+      <h2 class="contact-title reveal">Let's build something<br>intelligent together.</h2>
+      <p class="contact-text reveal" id="contact-text"></p>
+      <form class="contact-form reveal" id="contact-form" novalidate>
+        <div class="field">
+          <input type="text" name="name" id="f-name" required placeholder=" " />
+          <label for="f-name">Your name</label>
+        </div>
+        <div class="field">
+          <input type="email" name="email" id="f-email" required placeholder=" " />
+          <label for="f-email">Email</label>
+        </div>
+        <div class="field field-full">
+          <textarea name="message" id="f-message" rows="4" required placeholder=" "></textarea>
+          <label for="f-message">Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-note" id="form-note" role="status"></p>
+      </form>
+      <div class="contact-socials" id="contact-socials"></div>
     </section>
   </main>
 
   <footer>
-    <p>Designed &amp; built by <span id="footer-name">Yahia Elgayar</span></p>
-    <p class="footer-note">Crafted with the ui-ux-pro-max design system · edit <code>js/data.js</code> to update.</p>
+    <p>Designed &amp; built by <span id="footer-name"></span></p>
+    <p class="footer-note">Built with Vite · GSAP · Lenis — edit <code>src/data.js</code> to update.</p>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

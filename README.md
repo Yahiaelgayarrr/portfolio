@@ -1,44 +1,69 @@
-# Portfolio
+# Portfolio — Yahia Elgayar
 
-A fast, dark-themed personal portfolio website. All content lives in one
-file so it's easy to update — no build tools, no frameworks, no installs.
+A dark, cinematic personal portfolio for data science & AI, built with **Vite +
+GSAP + Lenis**. Smooth inertia scrolling, scroll-triggered reveals, a word-by-word
+"brighten" text effect, animated counters, and a particle/neural background —
+the motion language of high-end agency sites, adapted to a personal portfolio.
 
-## ✏️ How to edit your portfolio
+## ✏️ Edit your content
 
-Open **`js/data.js`** and change the text. That's the only file you need.
+Everything you'd change lives in **`src/data.js`** — name, roles, tagline, about,
+skills, experience, education, projects, achievements, links, and the accent color.
+Save and the dev server hot-reloads instantly.
 
-- **Change your name, tagline, roles** → top of `data.js`
-- **Add a project** → copy a `{ ... }` block inside `projects` and edit it
-- **Add a skill / job / degree / award** → add an item to the matching list
-- **Change the color theme** → edit the `accent` value (e.g. `"#7c5cff"`)
-- **Add your resume** → drop `resume.pdf` in the `assets/` folder
-
-Save the file and refresh your browser to see the changes.
-
-## 👀 Preview it locally
-
-Just open `index.html` in your browser. (Or run a tiny local server for
-best results:)
+## 🧑‍💻 Develop locally
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+npm install       # first time only
+npm run dev        # start dev server with hot reload → http://localhost:5173
 ```
 
-## 🚀 Publish it for free (GitHub Pages)
+## 📦 Build & preview production
 
-1. Push this repo to GitHub.
-2. On GitHub: **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-4. Pick your branch and the `/ (root)` folder, then **Save**.
-5. Your site goes live at `https://<your-username>.github.io/portfolio/`.
+```bash
+npm run build      # outputs static site to dist/
+npm run preview    # serve the built dist/ locally
+```
+
+## 🚀 Deploy for free
+
+The build in `dist/` is plain static files — host anywhere free:
+
+- **GitHub Pages** — deploy the `dist/` folder (or use an action). `vite.config.js`
+  already sets `base: './'` so it works from a repo subpath.
+- **Netlify / Vercel / Cloudflare Pages** — build command `npm run build`,
+  publish directory `dist`.
+
+## ✉️ Contact form
+
+The form works with **no backend**: it opens the visitor's email app pre-filled.
+To collect submissions instead, create a free [Formspree](https://formspree.io)
+form and set `FORM_ENDPOINT` at the top of `src/modules/motion.js`.
 
 ## 📁 Structure
 
 ```
-index.html      Page structure (rarely needs editing)
-css/styles.css  All styling and animations
-js/data.js      👈 YOUR CONTENT — edit this
-js/main.js      Renders your data + runs the animations
-assets/         Put your resume.pdf and images here
+index.html            Page markup (sections are filled from data.js)
+vite.config.js        Build config (relative base for flexible hosting)
+src/
+  data.js             👈 YOUR CONTENT — edit this
+  styles.css          Design system + layout
+  main.js             Entry point
+  modules/
+    render.js         Builds the DOM from data.js
+    field.js          Particle / neural background canvas
+    motion.js         Lenis smooth scroll + GSAP animations + form
+public/
+  favicon.svg
+assets/               Put resume.pdf / images here
 ```
+
+## 🎬 The motion primitives
+
+The scroll effects reuse five reusable techniques:
+
+1. **Smooth scroll** — Lenis, wired into GSAP's ticker.
+2. **Reveal on scroll** — fade + rise as elements enter the viewport.
+3. **Word-by-word brighten** — the About paragraph lightens as you scroll (scrub).
+4. **Scale/counter on enter** — stats count up when they appear.
+5. **Cursor-reactive detail** — particle field leans toward the cursor; work cards glow.
