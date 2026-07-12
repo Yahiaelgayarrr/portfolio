@@ -1,69 +1,63 @@
 # Portfolio — Yahia Elgayar
 
-A dark, cinematic personal portfolio for data science & AI, built with **Vite +
-GSAP + Lenis**. Smooth inertia scrolling, scroll-triggered reveals, a word-by-word
-"brighten" text effect, animated counters, and a particle/neural background —
-the motion language of high-end agency sites, adapted to a personal portfolio.
+A cinematic, WebGL-driven personal portfolio for data science & AI. Concept:
+**"From Noise to Knowledge"** — a GPU particle field is the connective tissue of
+the whole site and morphs as you scroll, telling the story of raw data becoming
+intelligence.
+
+Built with **React · Three.js (react-three-fiber) + custom GLSL shaders · GSAP /
+ScrollTrigger · Lenis smooth scroll · Tailwind · Vite.**
 
 ## ✏️ Edit your content
 
-Everything you'd change lives in **`src/data.js`** — name, roles, tagline, about,
-skills, experience, education, projects, achievements, links, and the accent color.
-Save and the dev server hot-reloads instantly.
+All copy lives in **`src/data.js`** — name, roles, about, skills, experience,
+education, projects, achievements, links, accent colors.
 
-## 🧑‍💻 Develop locally
+## 🧑‍💻 Develop
 
 ```bash
-npm install       # first time only
-npm run dev        # start dev server with hot reload → http://localhost:5173
+npm install
+npm run dev      # http://localhost:5173  (hot reload, incl. shaders)
 ```
 
-## 📦 Build & preview production
+## 📦 Build & preview
 
 ```bash
-npm run build      # outputs static site to dist/
-npm run preview    # serve the built dist/ locally
+npm run build    # → dist/ (static)
+npm run preview
 ```
 
 ## 🚀 Deploy for free
 
-The build in `dist/` is plain static files — host anywhere free:
+`dist/` is static — host on GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
+`vite.config.js` uses `base: './'` so it works from a domain root or a repo
+subpath. Build command `npm run build`, publish directory `dist`.
 
-- **GitHub Pages** — deploy the `dist/` folder (or use an action). `vite.config.js`
-  already sets `base: './'` so it works from a repo subpath.
-- **Netlify / Vercel / Cloudflare Pages** — build command `npm run build`,
-  publish directory `dist`.
+## 🎬 What's inside
 
-## ✉️ Contact form
-
-The form works with **no backend**: it opens the visitor's email app pre-filled.
-To collect submissions instead, create a free [Formspree](https://formspree.io)
-form and set `FORM_ENDPOINT` at the top of `src/modules/motion.js`.
+- **Particle field** (`src/three/`) — custom shader (simplex-noise flow field,
+  cursor repulsion, scroll-reactive dispersion + swirl), additive-blended points.
+- **Adaptive fallback** (`src/hooks/useDeviceTier.js`) — full particle count on
+  capable devices, reduced on mid, CSS-only ambient background on phones /
+  low-end / reduced-motion.
+- **Two cinematic scroll moments** — the pinned *manifesto* and the scroll-driven
+  *thesis pipeline* (frame → detection → heatmap → risk).
+- **Motion primitives** — Lenis smooth scroll, expo.out reveals, word-by-word
+  brighten, animated counters, 3D-tilt project cards with cursor glow.
 
 ## 📁 Structure
 
 ```
-index.html            Page markup (sections are filled from data.js)
-vite.config.js        Build config (relative base for flexible hosting)
+index.html
 src/
-  data.js             👈 YOUR CONTENT — edit this
-  styles.css          Design system + layout
-  main.js             Entry point
-  modules/
-    render.js         Builds the DOM from data.js
-    field.js          Particle / neural background canvas
-    motion.js         Lenis smooth scroll + GSAP animations + form
-public/
-  favicon.svg
-assets/               Put resume.pdf / images here
+  data.js            👈 YOUR CONTENT
+  App.jsx            layout + section order
+  index.css          design tokens, glass, ambient blobs
+  sections.css       component styles
+  three/             WebGL: Background, Scene, ParticleField (+ shaders)
+  components/         Nav, Hero, Manifesto, About, Skills, Featured,
+                      Projects, Experience, Contact, Footer, Reveal
+  hooks/             useSmoothScroll, useDeviceTier
+  lib/               mouse + scroll shared state
+public/favicon.svg
 ```
-
-## 🎬 The motion primitives
-
-The scroll effects reuse five reusable techniques:
-
-1. **Smooth scroll** — Lenis, wired into GSAP's ticker.
-2. **Reveal on scroll** — fade + rise as elements enter the viewport.
-3. **Word-by-word brighten** — the About paragraph lightens as you scroll (scrub).
-4. **Scale/counter on enter** — stats count up when they appear.
-5. **Cursor-reactive detail** — particle field leans toward the cursor; work cards glow.
